@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="lang">
+   <head>
+      <link rel="stylesheet" href="styles.css">
+      <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dart Documentation</title>
+      </head>
+      <body>
+         <header class="banner">
+<img id="logo" src="https://dwglogo.com/wp-content/uploads/2018/03/Dart_logo-1024x705.png">
+<h1>Dart</h1>
+<nav id="navheader">
+   <ul>
+          <li><a href="https://dart.dev/overview">Overview
+</a></li>
+          <li><a href="#main-doc">Docs</a></li>
+          <li><a href="https://dart.dev/community">Community</a></li>
+          <li><a href="https://dart.dev/#try-dart">Try Dart</a></li>
+          <li><a href="https://dart.dev/get-dart">Get Dart</a></li>
+        </ul>
+   </nav>
+            </header>
+  <main id="main-doc">
+    <nav id="navbar">
+      <header>Dart Documentation</header>
+      <a class="nav-link" href="#Introduction">Introduction</a>
+       <a class="nav-link" href="#hello_world">Hello World</a>
+        <a class="nav-link" href="#variables">Variables</a>
+         <a class="nav-link" href="#control_flow_statements">Control Flow Statements</a>
+          <a class="nav-link" href="#functions">Function</a>
+           <a class="nav-link" href="#comments">Comments</a>
+            <a class="nav-link" href="#imports">Imports</a>
+             <a class="nav-link" href="#classes">Classes</a>
+              <a class="nav-link" href="#enums">Enums</a>
+               <a class="nav-link" href="#inheritance">Inheritance</a>
+                <a class="nav-link" href="#mixins">Mixins</a> 
+                <a class="nav-link" href="#interfaces_and_abstract_classes">Interfaces and abstract classes</a>
+     <a class="nav-link" href="#async">Async</a>
+      <a class="nav-link" href="#exceptions">Exceptions</a>
+       <a class="nav-link" href="#reference">Reference</a>
+</nav>
+<section class="main-section" id="Intro">
+   <h2>Language samples</h2>
+   <p>This collection is not exhaustive—it’s just a brief introduction to the language for people who like to learn by example. You might also want to check out the language and library tours, or the <a href="https://dart.dev/codelabs/dart-cheatsheet">Dart cheatsheet codelab.</a></p>
+   <div class="one">
+      <div class="div1"><h3 id="styling">Language tour</h3><p id="styling">A comprehensive tour, with examples, of the Dart language. Most of the <i>read more</i> links in this page point to the language tour.</p></div>
+      <div class="divbtw"></div>
+      <div class="div2"><h3 id="styling">Library tour</h3><p id="styling">An example-based introduction to the Dart core libraries. See how to use the built-in types, collections, dates and times, streams, and more.</p></div>
+   </div>
+</section>
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      
+      </section>
+      <section class="main-section" id="hello_world" >
+        <header>Hello World</header>
+        <p>Every app has a main() function. To display text on the console, you can use the top-level print() function</p>
+        <div class="code"><code>void main() {<br>
+           print('Hello, World!');<br>
+         }</code></div>
+        </section>
+         <section class="main-section" id="variables">
+           <header>Variables</header>
+           <p>Even in type-safe Dart code, most variables don’t need explicit types, thanks to type inference:</p>
+          <div class="code"><code>var name = 'Voyager I';<br>
+            var year = 1977;<br>
+            var antennaDiameter = 3.7;<br>
+            var flybyObjects = ['Jupiter', 'Saturn', 'Uranus', 'Neptune'];<br>
+            var image = {<br>
+              'tags': ['saturn'],<br>
+              'url': '//path/to/saturn.jpg'<br>
+            };</code></div>
+            <p><a href="https://dart.dev/guides/language/language-tour#variables">Read more</a> about variables in Dart, including default values, the final and const keywords, and static types.
+            </p>
+         </section>
+         <section class="main-section" id="control_flow_statements">
+           <header>Control flow statements</header>
+           <p>Dart supports the usual control flow statements:</p>
+           <div class="code"><code>if (year >= 2001) {<br>
+            print('21st century');<br>
+          } else if (year >= 1901) {<br>
+            print('20th century');<br>
+          }<br>
+          
+          for (final object in flybyObjects) {<br>
+            print(object);<br>
+          }<br>
+          
+          for (int month = 1; month <= 12; month++) {<br>
+            print(month);<br>
+          }<br>
+      
+          while (year < 2016) {<br>
+            year += 1;<br>
+          }</code></div>
+         <p><a href="https://dart.dev/guides/language/language-tour#control-flow-statements">Read more</a> about control flow statements in Dart, including break and continue, switch and case, and assert.</p>
+         </section>
+         <section class="main-section" id="functions">
+           <header>Functions</header>
+           <p><a href="https://dart.dev/guides/language/effective-dart/design#types">We recommend</a> specifying the types of each function’s arguments and return value:</p>
+           <div class="code"><code>int fibonacci(int n) {<br>
+            if (n == 0 || n == 1) return n;<br>
+            return fibonacci(n - 1) + fibonacci(n - 2);<br>
+           }<br>
+          var result = fibonacci(20);</code></div>
+          <p>A shorthand => (arrow) syntax is handy for functions that contain a single statement. This syntax is especially useful when passing anonymous functions as arguments:</p>
+          <div class="code"><code>flybyObjects.where((name) => name.contains('turn')).forEach(print);</code></div>
+          <p>Besides showing an anonymous function (the argument to where()), this code shows that you can use a function as an argument: the top-level print() function is an argument to forEach().
+            <br><br>Read more about functions in Dart, including optional parameters, default parameter values, and lexical scope.</p>
+         </section>
+        <section class="main-section" id="comments">
+           <header>Comments</header>
+           <p>Dart comments usually start with //.</p>
+           <div class="code"><code>// This is a normal, one-line comment.<br>
+
+            /// This is a documentation comment, used to document libraries,
+            /// <br>classes, and their members. Tools like IDEs and dartdoc treat
+            ///<br> doc comments specially.
+            
+            /* Comments like these are also supported. */<br>
+        </code></div>
+        <p><a href="https://dart.dev/guides/language/language-tour#comments">Read more</a> about comments in Dart, including how the documentation tooling works.</p>
+        </section>
+        <section class="main-section" id="imports">
+           <header>Imports</header>
+           <p>To access APIs defined in other libraries, use import.</p>
+           <div class="code"><code>// Importing core libraries<br>
+            import 'dart:math';<br>
+            <br>
+            // Importing libraries from external packages<br>
+            import 'package:test/test.dart';<br>
+            <br>
+            // Importing files<br>
+            import 'path/to/my_other_file.dart';<br>
+        </code></div>
+        <p><a href="https://dart.dev/guides/language/language-tour#libraries-and-visibility">Read more</a> about libraries and visibility in Dart, including library prefixes, show and hide, and lazy loading through the deferred keyword.</p>
+        </section>
+        <section class="main-section" id="classes">
+           <header>Classes</header>
+          <p>Here’s an example of a class with three properties, two constructors, and a method. One of the properties can’t be set directly, so it’s defined using a getter method (instead of a variable).</p>
+          <div class="code"><code>class Spacecraft {<br>
+            String name;<br>
+            DateTime? launchDate;<br>
+          <br>
+            // Read-only non-final property<br>
+            int? get launchYear => launchDate?.year;<br>
+            <br>
+            // Constructor, with syntactic sugar for assignment to members.<br>
+            Spacecraft(this.name, this.launchDate) {<br>
+              // Initialization code goes here.<br>
+            }<br>
+            <br>
+            // Named constructor that forwards to the default one.<br>
+            Spacecraft.unlaunched(String name) : this(name, null);<br>
+            <br>
+            // Method.<br>
+            void describe() {<br>
+              print('Spacecraft: $name');<br>
+              // Type promotion doesn't work on getters.<br>
+              var launchDate = this.launchDate;<br>
+              if (launchDate != null) {<br>
+                int years = DateTime.now().difference(launchDate).inDays ~/ 365;<br>
+                print('Launched: $launchYear ($years years ago)');<br>
+              } else {<br>
+                print('Unlaunched');<br>
+              }
+            }
+          }
+        </code></div>
+        <p>You might use the Spacecraft class like this:        </p>
+        <div class="code"><code>var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));         <br>
+         voyager.describe();         <br>
+         <br>
+         var voyager3= Spacecraft.unlaunched('Voyager III');         <br>
+         voyager3.describe();
+         <br>
+     </code></div>
+     <p><a href="https://dart.dev/guides/language/language-tour#classes">Read more</a> about classes in Dart, including initializer lists, optional new and const, redirecting constructors, factory constructors, getters, setters, and much more.</p>
+    </section>
+        <section class="main-section" id="enums">
+           <header>Enums</header>
+           <p>Enums are a way of enumerating a predefined set of values or instances in a way which ensures that there cannot be any other instances of that type.</p>
+           <p>Here is an example of a simple enum that defines a simple list of predefined planet types:</p>
+           <div class="code"><code>enum PlanetType { terrestrial, gas, ice }
+        </code></div>
+        <p>Here is an example of an enhanced enum declaration of a class describing planets, with a defined set of constant instances, namely the planets of our own solar system.</p>
+        <div class="code"><code>/// Enum that enumerates the different planets in our solar system<br>
+         /// and some of their properties.<br>
+         enum Planet {<br>
+           mercury(planetType: PlanetType.terrestrial, moons: 0, hasRings: false),<br>
+           venus(planetType: PlanetType.terrestrial, moons: 0, hasRings: false),<br>
+           // ···<br>
+           uranus(planetType: PlanetType.ice, moons: 27, hasRings: true),<br>
+           neptune(planetType: PlanetType.ice, moons: 14, hasRings: true);<br>
+           <br>
+           /// A constant generating constructor<br>
+           const Planet(<br>
+               {required this.planetType, required this.moons, required this.hasRings});<br>
+               <br>
+           /// All instance variables are final<br>
+           final PlanetType planetType;<br>
+           final int moons;<br>
+           final bool hasRings;<br>
+           <br>
+           /// Enhanced enums support getters and other methods<br>
+           bool get isGiant =><br>
+               planetType == PlanetType.gas || planetType == PlanetType.ice;<br>
+         }
+         <br>
+     </code></div>
+     <p>You might use the Planet enum like this:  </p>
+     <div class="code"><code>final yourPlanet = Planet.earth;<br>
+     <br>
+      if (!yourPlanet.isGiant) {<br>
+        print('Your planet is not a "giant planet".');<br>
+      }      <br>
+  </code></div>
+  <p><a href="https://dart.dev/guides/language/language-tour#enums">Read more</a> about enums in Dart, including enhanced enum requirements, automatically introduced properties, accessing enumerated value names, switch statement support, and much more.</p>
+   </section>
+        <section class="main-section" id="inheritance">
+           <header>Inheritance</header>
+           <p>Dart has single inheritance.</p>
+           <div class="code"><code>class Orbiter extends Spacecraft {<br>
+            double altitude;<br>
+          <br>
+            Orbiter(super.name, DateTime super.launchDate, this.altitude);<br>
+          }<br>
+         </code></div>
+         <p><a href="https://dart.dev/guides/language/language-tour#extending-a-class">Read more</a> about extending classes, the optional @override annotation, and more.         </p>
+        </section>
+        <section class="main-section" id="mixins">
+           <header>Mixins</header>
+           <p>Mixins are a way of reusing code in multiple class hierarchies. The following is a mixin declaration:           </p>
+           <div class="code"><code>mixin Piloted {<br>
+            int astronauts = 1;<br>
+          <br>
+            void describeCrew() {<br>
+              print('Number of astronauts: $astronauts');<br>
+            }<br>
+          }
+         </code></div>
+         <p>To add a mixin’s capabilities to a class, just extend the class with the mixin.         </p>
+         <div class="code"><code>class PilotedCraft extends Spacecraft with Piloted {<br>
+            // ···<br>
+          }<br>
+         </code></div>
+      </section>
+        <section class="main-section" id="interfaces_and_abstract_classes">
+           <header>Interfaces and abstract classes</header>
+        </section>
+        <section class="main-section" id="async">
+           <header>Async</header>
+        </section>
+        <section class="main-section" id="exceptions">
+           <header>Exceptions</header>
+        </section>
+        <section class="main-section" id="reference">
+           <header>Reference</header>
+        </section>
+    </main>
+    </body>
+  </html>
